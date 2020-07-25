@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+    <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -73,7 +75,34 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @auth
+                <div class="container">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{session()->get('success')}}
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#"> POST</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('categories.index') }}"> Category</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-md-8">
+
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            @else
+             @yield('content')
+            @endauth
         </main>
     </div>
 </body>
