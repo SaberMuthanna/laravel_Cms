@@ -22,12 +22,12 @@
                                 <th scope="row">{{$category->name}}</th>
                                 <td>
                                     <a class="" href="#">
-                                        <i class=" fas fa-edit" style="color:blue"></i>
+                                        <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="" href="#">
-                                        <i class="fas fa-trash-alt " style="color:red"></i>                                        </a>
+                                        <i class="fas fa-trash-alt " style="color:red; text-align: center;"></i>                                        </a>
                                 </td>
                             </tr>
                         @endforeach
