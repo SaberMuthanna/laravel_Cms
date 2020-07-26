@@ -21,7 +21,7 @@
                                 <th scope="row">{{$category->id}}</th>
                                 <th scope="row">{{$category->name}}</th>
                                 <td>
-                                    <a class="" href="#">
+                                <a class="" href="{{route('categories.edit',$category->id)}}">
                                         <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>
                                     </a>
                                 </td>

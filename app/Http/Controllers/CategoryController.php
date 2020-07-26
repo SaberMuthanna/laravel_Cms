@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+
+use
+    App\Http\Requests\categories\UpdateCategoriesRequest;
+
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -44,7 +49,7 @@ class CategoryController extends Controller
         $category->name = $data['name'];
         $category->save();
 
-        session()->flash('success', 'Todo Created successfully');
+        session()->flash('success', 'Category Created successfully');
         return redirect('/categories');
     }
 
@@ -67,7 +72,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.create')->with('category',$category);
     }
 
     /**
@@ -77,9 +82,17 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoriesRequest $request, Category $category)
     {
-        //
+        
+        $data = request()->all();
+
+        $category = new Category();
+        $category->name = $data['name'];
+        $category->save();
+
+        session()->flash('success', 'Category Update successfully');
+        return redirect('/categories');
     }
 
     /**
