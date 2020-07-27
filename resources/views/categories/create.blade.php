@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title')
+ {{isset($category)?'Edit Category':'Create Category'}}
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-header">

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -86,7 +86,7 @@
                         <div class="col-md-4">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="#"> POST</a>
+                                    <a href="{{ route('posts.index') }}"> POST</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('categories.index') }}"> Category</a>
