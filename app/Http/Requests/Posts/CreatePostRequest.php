@@ -25,10 +25,10 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' =>'require|Unique:posts',
-            'description'=> 'require',
-            'image' => 'require|image',
-            'content'=> 'require',
+            'title' => 'required|Unique:posts',
+            'description' => 'required',
+            'image' => 'required|image',
+            'content' => 'required',
         ];
     }
 }

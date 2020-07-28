@@ -36,7 +36,7 @@
                    <label for="content">Content</label>
                    <textarea id="content" class="form-control" name="content" rows="3"></textarea>
                 </div>
-              
+
                 <div class="form-group">
                     <label for="published_at">Published At</label>
                 <input type="text" class="form-control" id="published_at" name="published_at" value="" placeholder="Enter Name" >

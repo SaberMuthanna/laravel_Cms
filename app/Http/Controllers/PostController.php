@@ -36,7 +36,8 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        dd($request()->image);
+        dd($request->image);
+        dd($request->title);
         // $data = request()->all();
 
         // $post = new Post();
