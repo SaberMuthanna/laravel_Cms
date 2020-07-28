@@ -36,16 +36,20 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        dd($request->image);
-        dd($request->title);
-        // $data = request()->all();
+        //upload the image to store
+        $image = $request->image->store('posts');
+        //create this post
+        Post::create([
+            'title' => $request->title,
+            'description' => $request->description,
+             'content'=> $request->content,
+             'image'=> $image
 
-        // $post = new Post();
-        // $post->name = $data['name'];
-        // $post->save();
 
-        // session()->flash('success', 'Post Created successfully');
-        // return redirect('/posts');
+        ]); 
+        session()->flash('success', 'Post Created successfully');
+
+        return redirect('/posts');
     }
 
     /**

@@ -13,7 +13,9 @@
                 <thead>
                     <tr class="table-primary">
                     <th scope="col">id</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                     <th scope="col">Name</th>
+                      <th scope="col">description</th>
                     <th scope="col">edit</th>
                     <th scope="col">Delete</th>
                     </tr>
@@ -22,7 +24,11 @@
                     @foreach($posts as $post)
                         <tr>
                             <th scope="row">{{$post->id}}</th>
-                            <th scope="row">{{$post->title}}</th>
+                            <td>
+                                <img src="{{$post->image}}" alt="">
+                            </td>
+                            <td scope="row">{{$post->title}}</td>
+                            <td scope="row">{{$post->description}}</td>
                             <td>
                             <a class="" href="{{route('posts.edit',$post->id)}}">
                                     <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>
