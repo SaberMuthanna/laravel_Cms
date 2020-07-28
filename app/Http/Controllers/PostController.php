@@ -37,15 +37,16 @@ class PostController extends Controller
     public function store(CreatePostRequest $request)
     {
         //upload the image to store
-        $image = $request->image->store('posts');
+        // $image = $request->image->store('posts');
+        $image = $request->image;
+        $image_new_name = time() . $image->getClientOriginalName();
+        $image->move('storage/posts', $image_new_name);
         //create this post
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
-             'content'=> $request->content,
-             'image'=> $image
-
-
+            'content'=> $request->content,
+            "image" => 'storage/posts/' .$image_new_name,
         ]); 
         session()->flash('success', 'Post Created successfully');
 
