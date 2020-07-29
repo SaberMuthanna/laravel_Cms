@@ -89,6 +89,9 @@
                                     <a href="{{ route('posts.index') }}"> POST</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('posts.index') }}"> Trashed Post</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('categories.index') }}"> Category</a>
                                 </li>
                             </ul>

@@ -48,8 +48,7 @@
             <div class="modal-dialog">
                 <form action="" method="post" id="deletCategoryForm">
                     @csrf
-                    @method ('delete')
-                    
+
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="deleteModalLabel"> Delete Posts</h5>
