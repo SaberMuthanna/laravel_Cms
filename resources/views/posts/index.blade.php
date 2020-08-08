@@ -9,13 +9,14 @@
     <div class="card">
         <div class="card-header">Create Post</div>
         <div class="card-body">
+            @if ($posts->count()>0)
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-primary">
                     <th scope="col">id</th>
                     <th scope="col">Image</th>
-                     <th scope="col">Name</th>
-                      <th scope="col">description</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">description</th>
                     <th scope="col">edit</th>
                     <th scope="col">Delete</th>
                     </tr>
@@ -25,24 +26,34 @@
                         <tr>
                             <th scope="row">{{$post->id}}</th>
                             <td>
-                                <img class="rounded-circle" src="{{$post->image}}" alt="{{$post->title}}" width="50px" height="50px" border-radius:50%>
+                                {{-- <img src="{{ $post->image }}" alt=""> --}}
+                                <img class="rounded-circle" src="{{ $post->image }}" alt="" width="50px" height="50px" >
                             </td>
                             <td scope="row">{{$post->title}}</td>
                             <td scope="row">{{$post->description}}</td>
+                            @if (!$post->trashed())
                             <td>
-                            <a class="" href="{{route('posts.edit',$post->id)}}">
-                                    <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>
+                                <a class="btn" href="{{route('posts.edit',$post->id)}}">
+                                        <i class=" fas fa-edit" style="color:blue ; "></i>
                                 </a>
                             </td>
+                            @endif
+
                             <td>
-                                <a class="" href="#">
-                                    <i class="fas fa-trash-alt " onclick="handelDelete({{$post->id}})" style="color:red; text-align: center;"></i>                                        </a>
+                                <form action="{{route('posts.destroy', $post->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn"> <i class="fas fa-trash-alt"  style="color:red ; "> </i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
 
                 </tbody>
             </table>
+            @else
+              <h3 class="text-center"> NO Posts </h3>
+            @endif
             <!-- Modal -->
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">

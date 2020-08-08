@@ -9,8 +9,7 @@
 
     <title>@yield('title')</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,7 +18,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
-    <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>
+    {{--  <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>  --}}
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -88,12 +88,16 @@
                                 <li class="list-group-item">
                                     <a href="{{ route('posts.index') }}"> POST</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{ route('posts.index') }}"> Trashed Post</a>
-                                </li>
+
                                 <li class="list-group-item">
                                     <a href="{{ route('categories.index') }}"> Category</a>
                                 </li>
+                            </ul>
+                            <ul class="list-group mt-5">
+                                <li class="list-group-item">
+                                    <a href="{{ route('trashed') }}"> Trashed Post</a>
+                                </li>
+
                             </ul>
 
                         </div>
@@ -108,7 +112,8 @@
             @endauth
         </main>
     </div>
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" ></script>
     @yield('scripts')
 </body>
 </html>

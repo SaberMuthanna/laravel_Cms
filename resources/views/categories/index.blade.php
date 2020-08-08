@@ -9,6 +9,7 @@
         <div class="card">
             <div class="card-header">Categories</div>
             <div class="card-body">
+                @if($categories->count()>0)
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-primary">
@@ -24,26 +25,31 @@
                                 <th scope="row">{{$category->id}}</th>
                                 <th scope="row">{{$category->name}}</th>
                                 <td>
-                                <a class="" href="{{route('categories.edit',$category->id)}}">
+                                <a class="btn" href="{{route('categories.edit',$category->id)}}">
                                         <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="" href="#">
+                                    <a class="btn" href="#">
                                         <i class="fas fa-trash-alt " onclick="handelDelete({{$category->id}})" style="color:red; text-align: center;"></i>                                        </a>
                                 </td>
                             </tr>
                         @endforeach
-
                     </tbody>
                 </table>
+                @else
+                <h3 class="text-center">
+                    No categories
+                </h3>
+                @endif
+
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                    <form action="" method="post" id="deletCategoryForm">
                        @csrf
                        @method ('delete')
-                       
+
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="deleteModalLabel"> Delete Category</h5>
@@ -70,11 +76,11 @@
 @section('scripts')
     <script>
         function handelDelete(id){
-            
+
             var form = document.getElementById('deletCategoryForm')
             form.action ='/categories/'+ id
             $('#deleteModal').modal('show')
-           
+
         }
     </script>
 @endsection
