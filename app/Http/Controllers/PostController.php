@@ -48,8 +48,9 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            "image" => 'storage/posts/' . $image_new_name,
+            "image" => 'storage/posts/'. $image_new_name,
             'published_at' => $request->published_at,
+            'category_id' => $request->category
         ]);
         session()->flash('success', 'Post Created successfully');
 
