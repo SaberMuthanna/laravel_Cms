@@ -8,13 +8,14 @@
     </div>
         <div class="card">
             <div class="card-header">Categories</div>
-            <div class="card-body">
+            <div class="card-body text-center">
                 @if($categories->count()>0)
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-primary">
                         <th scope="col">id</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Post Count</th>
                         <th scope="col">edit</th>
                         <th scope="col">Delete</th>
                         </tr>
@@ -24,6 +25,8 @@
                             <tr>
                                 <th scope="row">{{$category->id}}</th>
                                 <th scope="row">{{$category->name}}</th>
+                                <th scope="row">{{$category->posts->count()}}</th>
+
                                 <td>
                                 <a class="btn" href="{{route('categories.edit',$category->id)}}">
                                         <i class=" fas fa-edit" style="color:blue ; text-align:center;"></i>

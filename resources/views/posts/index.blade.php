@@ -17,6 +17,7 @@
                     <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">description</th>
+                    <th scope="col">Category Name</th>
                     <th scope="col">edit</th>
                     <th scope="col">Delete</th>
                     </tr>
@@ -31,6 +32,7 @@
                             </td>
                             <td scope="row">{{$post->title}}</td>
                             <td scope="row">{{$post->description}}</td>
+                            <td scope="row">{{$post->category->name}}</td>
                             @if (!$post->trashed())
                             <td>
                                 <a class="btn" href="{{route('posts.edit',$post->id)}}">
