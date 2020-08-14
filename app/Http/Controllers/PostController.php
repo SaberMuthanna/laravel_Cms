@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return  view('posts.create')->with('categories',Category::all());
+        return  view('posts.create')->with('categories', Category::all());
     }
 
     /**
@@ -48,7 +54,7 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            "image" => 'storage/posts/'. $image_new_name,
+            "image" => 'storage/posts/' . $image_new_name,
             'published_at' => $request->published_at,
             'category_id' => $request->category
         ]);

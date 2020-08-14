@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-
-use
-    App\Http\Requests\categories\UpdateCategoriesRequest;
-
+use App\Tag;
 use Illuminate\Http\Request;
+use App\http\Requests\Tags\UpdateTagRequest;
 
-
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index')->with('categories', Category::all());
+        return view('tags.index')->with('tags', Tag::all());
     }
 
     /**
@@ -29,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('tags.create');
     }
 
     /**
@@ -41,16 +37,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'name'  => 'required|unique:categories',
+            'name'  => 'required|unique:Tags',
         ]);
         $data = request()->all();
 
-        $category = new Category();
-        $category->name = $data['name'];
-        $category->save();
+        $tag = new Tag();
+        $tag->name = $data['name'];
+        $tag->save();
 
-        session()->flash('success', 'Category Created successfully');
-        return redirect('/categories');
+        session()->flash('success', 'Tag Created successfully');
+        return redirect('/tags');
     }
 
     /**
@@ -59,7 +55,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Tag $category)
     {
         //
     }
@@ -70,9 +66,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Tag $tag)
     {
-        return view('categories.create')->with('category', $category);
+        return view('tags.create')->with('tag', $tag);
     }
 
     /**
@@ -82,15 +78,16 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, Category $category)
+    public function update(UpdateTagRequest $request, Tag $tag)
     {
-
-        $category->update([
+        $tag->update([
             'name' => $request->name
         ]);
 
-        session()->flash('success', 'Category Update successfully');
-        return redirect('/categories');
+
+
+        session()->flash('success', 'Tag Update successfully');
+        return redirect('/tags');
     }
 
     /**
@@ -99,12 +96,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Tag $tag)
     {
-        $category->delete();
+        $tag->delete();
 
-        session()->flash('success', 'Category Deleted successfully');
+        session()->flash('success', 'Tag Deleted successfully');
 
-        return redirect(route('categories.index'));
+        return redirect(route('tags.index'));
     }
 }
