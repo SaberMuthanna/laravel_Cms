@@ -28,3 +28,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/trashedPost', 'PostController@trashed')->name('trashed');
     Route::Put('/restore/{post}', 'PostController@restore')->name('restore');
 });
+Route::get('/users', 'UserController@index')->name('users.index');
