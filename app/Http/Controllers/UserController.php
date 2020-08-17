@@ -14,4 +14,8 @@ class UserController extends Controller
         session()->flash('success','user made admin successfully.');
         return redirect(route('users.index'));
     }
+    public function edit()
+    {
+        return view('users.edit')->with('user', auth()->user());
+    }
 }
