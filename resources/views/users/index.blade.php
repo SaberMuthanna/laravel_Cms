@@ -3,7 +3,7 @@
      Posts/index
  @endsection
  @section('content')
-   
+
     <div class="card">
         <div class="card-header">List Users</div>
         <div class="card-body">
@@ -11,9 +11,9 @@
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-primary">
-                        <th scope="col">id</th>
+                        {{--  <th scope="col">id</th>  --}}
+                        <th scope="col">Image</th>
                         <th scope="col">Name</th>
-                        <th scope="col">E-mail</th>
                         <th scope="col">Status</th>
                         <th scope="col">edit</th>
                         <th scope="col">Delete</th>
@@ -22,9 +22,13 @@
                 <tbody>
                     @foreach($users as $user)
                         <tr>
-                            <th scope="row">{{$user->id}}</th>
+                            {{--  <th scope="row">{{$user->id}}</th>  --}}
+                            <td scope="row">
+                                {{--  {{ Gravatar::src($user->email) }}  --}}
+                                <img height="40px" width="40px" style="border-radios:50%" src="{{ Gravatar::src('$user->email') }}">
+
+                            </td>
                             <td scope="row">{{$user->name}}</td>
-                            <td scope="row">{{$user->email}}</td>
                             <td scope ="row">
                                 @if (!$user->isAdmin())
                                     <form action="{{route('users.make-admin',$user->id)}}" method="post">
@@ -37,7 +41,7 @@
                             </td>
                             <td>
                                 <a class="btn" href="\">
-                                        <i class=" fas fa-edit" style="color:blue ; "></i>
+                                        <i class="fas fa-edit" style="color:blue ; "></i>
                                 </a>
                             </td>
                             <td>
