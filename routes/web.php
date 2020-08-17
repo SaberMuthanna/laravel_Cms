@@ -28,4 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/trashedPost', 'PostController@trashed')->name('trashed');
     Route::Put('/restore/{post}', 'PostController@restore')->name('restore');
 });
-Route::get('/users', 'UserController@index')->name('users.index');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::post('/users/{user}/make-admin','UserController@makeAdmin')->name('users.make-admin');
+});
+

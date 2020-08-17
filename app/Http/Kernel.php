@@ -4,6 +4,7 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\verifyCategoriesCount;
+use App\http\Middleware\verifyIsAdmin;
 class Kernel extends HttpKernel
 {
     /**
@@ -47,9 +48,7 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware.
-     *
      * These middleware may be assigned to groups or used individually.
-     *
      * @var array
      */
     protected $routeMiddleware = [
@@ -64,5 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifyCategoriesCount'=> verifyCategoriesCount::class,
+        'admin'=> verifyIsAdmin::class,
     ];
 }

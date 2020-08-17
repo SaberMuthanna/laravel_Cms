@@ -14,6 +14,7 @@
                         <th scope="col">id</th>
                         <th scope="col">Name</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Status</th>
                         <th scope="col">edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -24,14 +25,21 @@
                             <th scope="row">{{$user->id}}</th>
                             <td scope="row">{{$user->name}}</td>
                             <td scope="row">{{$user->email}}</td>
-                            
+                            <td scope ="row">
+                                @if (!$user->isAdmin())
+                                    <form action="{{route('users.make-admin',$user->id)}}" method="post">
+                                        @csrf
+                                        <button type="submit"  class="btn btn-success btn-sm">Make Admin</button>
+                                    </form>
+                                @else
+                                 <div class="btn btn-success btn-sm">Is Admin</div>
+                                @endif
+                            </td>
                             <td>
                                 <a class="btn" href="\">
                                         <i class=" fas fa-edit" style="color:blue ; "></i>
                                 </a>
                             </td>
-                            
-
                             <td>
                                 <form action="" method="post">
                                     @csrf
@@ -41,7 +49,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
             @else
@@ -52,7 +59,6 @@
             <div class="modal-dialog">
                 <form action="" method="post" id="deletCategoryForm">
                     @csrf
-
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="deleteModalLabel"> Delete Posts</h5>
