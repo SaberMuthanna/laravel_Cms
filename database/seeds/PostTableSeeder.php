@@ -28,28 +28,28 @@ class PostTableSeeder extends Seeder
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry1.',
             'category_id' => $category1->id,
-            'image' => 'posts/1.jpg'
+            'image' => 'storage/posts/1.jpg'
         ]);
         $post2 =  Post::create([
             'title' => 'Top 5 brilliant content marketing strategies.',
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry1.',
             'category_id' => $category2->id,
-            'image' => 'posts/2.jpg'
+            'image' => 'storage/posts/2.jpg'
         ]);
         $post3 =  Post::create([
             'title' => 'Best practices for minimalist design with example.',
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry1.',
             'category_id' => $category3->id,
-            'image' => 'posts/3.jpg'
+            'image' => 'storage/posts/3.jpg'
         ]);
         $post4 =  Post::create([
             'title' => 'Congratulate and thank to Maryam for joining our team.',
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry1.',
             'category_id' => $category2->id,
-            'image' => 'posts/4.jpg'
+            'image' => 'storage/posts/4.jpg'
         ]);
         $tag1 = Tag::create([
             'name' => 'job'

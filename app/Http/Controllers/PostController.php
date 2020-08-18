@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Tag;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -33,7 +35,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return  view('posts.create')->with('categories', Category::all());
+        return  view('posts.create')
+                                    ->with('categories', Category::all())
+                                    ->with('tags', Tag::all());
     }
 
     /**
@@ -45,23 +49,29 @@ class PostController extends Controller
     public function store(CreatePostRequest $request)
     {
         //upload the image to store
-        // $image = $request->image->store('posts');
-        $image = $request->image;
-        $image_new_name = time() . $image->getClientOriginalName();
-        $image->move('storage/posts', $image_new_name);
+        $image = $request->image->store('posts');
+        // $image = $request->image;
+        // $image_new_name = time() . $image->getClientOriginalName();
+        // $image->move('storage/posts', $image_new_name);
+
         //create this post
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            "image" => 'storage/posts/' . $image_new_name,
+            "image" => 'storage/'.$image,
             'published_at' => $request->published_at,
             'category_id' => $request->category
         ]);
+
+        if ($request->tags) {
+            $post->tags()->attach($request->tags);
+        }
         session()->flash('success', 'Post Created successfully');
 
         return redirect('/posts');
     }
+   
 
     /**
      * Display the specified resource.
@@ -83,7 +93,10 @@ class PostController extends Controller
     public function edit(Post $post)
     {
 
-        return view('posts.create')->with('post', $post)->with('categories', Category::all());
+        return view('posts.create')
+                                ->with('post', $post)
+                                ->with('categories', Category::all())
+                                ->with('tags', Tag::all());;
     }
 
     /**
@@ -98,10 +111,15 @@ class PostController extends Controller
         $data = $request->only(['title', 'description', 'published_at', 'content']);
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $image_new_name = time() . $image->getClientOriginalName();
-            $image->move('storage/posts', $image_new_name);
-            $data['image'] = 'storage/posts/' . $image_new_name;
+            // $image = $request->image;
+            // $image_new_name = time() . $image->getClientOriginalName();
+            // $image->move('storage/posts', $image_new_name);
+            // $data['image'] = 'storage/posts/' . $image_new_name;
+
+            $image = $request->image->store('posts');
+            Storage::delete($post->image);
+            $data['image'] = 'storage/'.$image;
+
         }
         $post->update($data);
         session()->flash('success', 'Post Updated successfully');
