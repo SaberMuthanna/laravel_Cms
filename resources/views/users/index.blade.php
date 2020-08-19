@@ -40,8 +40,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn" href="\">
-                                        <i class="fas fa-edit" style="color:blue ; "></i>
+                                <a class="btn" href="#">
+                                        <i class="fas fa-edit" style ="color:blue ; "></i>
                                 </a>
                             </td>
                             <td>

@@ -36,8 +36,8 @@ class PostController extends Controller
     public function create()
     {
         return  view('posts.create')
-                                    ->with('categories', Category::all())
-                                    ->with('tags', Tag::all());
+            ->with('categories', Category::all())
+            ->with('tags', Tag::all());
     }
 
     /**
@@ -59,7 +59,7 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            "image" => 'storage/'.$image,
+            "image" => 'storage/' . $image,
             'published_at' => $request->published_at,
             'category_id' => $request->category
         ]);
@@ -71,7 +71,7 @@ class PostController extends Controller
 
         return redirect('/posts');
     }
-   
+
 
     /**
      * Display the specified resource.
@@ -93,10 +93,11 @@ class PostController extends Controller
     public function edit(Post $post)
     {
 
+
         return view('posts.create')
-                                ->with('post', $post)
-                                ->with('categories', Category::all())
-                                ->with('tags', Tag::all());;
+            ->with('post', $post)
+            ->with('categories', Category::all())
+            ->with('tags', Tag::all());;
     }
 
     /**
@@ -118,8 +119,10 @@ class PostController extends Controller
 
             $image = $request->image->store('posts');
             Storage::delete($post->image);
-            $data['image'] = 'storage/'.$image;
-
+            $data['image'] = 'storage/' . $image;
+        }
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
         }
         $post->update($data);
         session()->flash('success', 'Post Updated successfully');

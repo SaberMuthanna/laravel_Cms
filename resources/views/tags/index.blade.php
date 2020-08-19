@@ -15,7 +15,7 @@
                         <tr class="table-primary">
                         <th scope="col">id</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Tag Count</th>
+                        <th scope="col">Posts Count</th>
                         <th scope="col">edit</th>
                         <th scope="col">Delete</th>
                         </tr>
@@ -25,7 +25,7 @@
                             <tr>
                                 <th scope="row">{{$tag->id}}</th>
                                 <th scope="row">{{$tag->name}}</th>
-                                <th scope="row">0</th>
+                                <th scope="row">{{ $tag->posts->count() }}</th>
 
                                 <td>
                                 <a class="btn" href="{{route('tags.edit',$tag->id)}}">
