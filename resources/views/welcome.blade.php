@@ -54,7 +54,7 @@
                 <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>
               </nav> --}}
               {{$posts->links()}}
-              
+
             </div>
 
 
@@ -62,8 +62,8 @@
             <div class="col-md-4 col-xl-3">
               <div class="sidebar px-4 py-md-0">
                 <h6 class="sidebar-title">Search</h6>
-                <form class="input-group" target="#" method="GET">
-                  <input type="text" class="form-control" name="s" placeholder="Search">
+                <form class="input-group" target="#" action="{{ route('welcome') }}" method="GET">
+                  <input type="text" class="form-control" name="search" placeholder="Search">
                   <div class="input-group-addon">
                     <span class="input-group-text"><i class="ti-search"></i></span>
                   </div>
@@ -75,7 +75,7 @@
                 <div class="row link-color-default fs-14 lh-24">
                   @foreach ($categories as $Category)
                     <div class="col-6"><a href="#">{{$Category->name}}</a></div>
-                  @endforeach  
+                  @endforeach
                 </div>
 
                 <hr>
