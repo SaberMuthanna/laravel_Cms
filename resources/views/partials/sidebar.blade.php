@@ -11,8 +11,12 @@
         <hr>
         <h6 class="sidebar-title">Categories</h6>
         <div class="row link-color-default fs-14 lh-24">
-            @foreach ($categories as $Category)
-            <div class="col-6"><a href="#">{{$Category->name}}</a></div>
+            @foreach ($categories as $category)
+            <div class="col-6">
+                <a href="{{route('blog.category', $category->id)}}">
+                    {{$category->name}}
+                </a>
+            </div>
             @endforeach
         </div>
         <hr>
