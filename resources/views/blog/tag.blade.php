@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 @section('title')
-    Category{{ $tag->name }}
+    Tag{{ $tag->name }}
 @endsection
 @section('header')
   <!-- Header -->

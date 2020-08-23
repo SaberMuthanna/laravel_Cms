@@ -18,6 +18,12 @@ class PostsController extends Controller
     }
     public function category(Category $category)
     {
+        $search = request()->query('search');
+        if ($search) {
+            $posts = $category->posts()->where('title', 'LIKE', "%{{$search}}% ")->simplePaginate(3);
+        } else {
+            $posts = $category->posts()->simplePaginate(3);
+        }
         return view('blog.category')
             ->with('category', $category)
             ->with('posts', $category->posts()->simplePaginate(3))
@@ -28,6 +34,8 @@ class PostsController extends Controller
     {
         return view('blog.tag')
             ->with('tag', $tag)
+            ->with('categories', Category::all())
+            ->with('tags', Tag::all())
             ->with('posts', $tag->posts()->simplePaginate(3));
     }
 }
