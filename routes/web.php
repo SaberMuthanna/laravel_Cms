@@ -22,9 +22,9 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('tags', 'TagController');
-    Route::resource('posts', 'PostController')->middleware(['auth', 'verifyCategoriesCount']);
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/tags', 'TagController');
+    Route::resource('/posts', 'PostController')->middleware(['auth', 'verifyCategoriesCount']);
     Route::get('/trashedPost', 'PostController@trashed')->name('trashed');
     Route::get('/trashedPost', 'PostController@trashed')->name('trashed');
     Route::Put('/restore/{post}', 'PostController@restore')->name('restore');

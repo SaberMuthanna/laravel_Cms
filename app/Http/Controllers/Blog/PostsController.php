@@ -18,15 +18,16 @@ class PostsController extends Controller
     }
     public function category(Category $category)
     {
-        $search = request()->query('search');
-        if ($search) {
-            $posts = $category->posts()->where('title', 'LIKE', "%{{$search}}% ")->simplePaginate(3);
-        } else {
-            $posts = $category->posts()->simplePaginate(3);
-        }
+        //Query Scopes
+        // $search = request()->query('search');
+        // if ($search) {
+        //     $posts = $category->posts()->where('title', 'LIKE', "%{{$search}}% ")->simplePaginate(3);
+        // } else {
+        //     $posts = $category->posts()->simplePaginate(3);
+        // }
         return view('blog.category')
             ->with('category', $category)
-            ->with('posts', $category->posts()->simplePaginate(3))
+            ->with('posts', $category->posts()->searched()->simplePaginate(3))
             ->with('categories', Category::all())
             ->with('tags', Tag::all());
     }
@@ -36,6 +37,6 @@ class PostsController extends Controller
             ->with('tag', $tag)
             ->with('categories', Category::all())
             ->with('tags', Tag::all())
-            ->with('posts', $tag->posts()->simplePaginate(3));
+            ->with('posts', $tag->posts()->searched()->simplePaginate(3));
     }
 }
