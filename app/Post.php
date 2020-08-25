@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use softDeletes;
 
+    use softDeletes;
+    protected $dates = [
+        'published_at'
+    ];
     protected $fillable = [
-        'title', 'description', 'content', 'image', 'published_at', 'category_id','user_id'
+        'title', 'description', 'content', 'image', 'published_at', 'category_id', 'user_id'
     ];
     public function category()
     {
@@ -35,12 +38,19 @@ class Post extends Model
 
         return $this->belongsTo('App\User');
     }
-    public function scopeSearched($query){
+    public function scopeSearched($query)
+    {
         $search = request()->query('search');
-        if(!$search){
-             
-            return $query;
+        if (!$search) {
+
+            return $query->published();
         }
-        return $query->where('title',"%{$search}%"); 
+        return $query->published()->where('title', "%{$search}%");
+    }
+
+
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', now());
     }
 }
