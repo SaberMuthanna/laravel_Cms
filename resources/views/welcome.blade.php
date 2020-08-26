@@ -4,21 +4,26 @@
 @endsection
 @section('header')
 <!-- Header -->
-    <header class="header text-white h-fullscreen pb-8" style="background-color: #4f407b">
+{{-- #4f407b --}}
+    <header class="header text-white h-fullscreen pb-8" style="background-color: #24292e">  
       <canvas class="constellation" data-color="rgba(255,255,255,0.3)"></canvas>
       <div class="container text-center position-static">
-        <div class="row h-100">
-          <div class="col-md-7 col-xl-5 mx-auto align-self-center">
-            <h1 class="display-1 fw-600 ls-3">Saber_almuthanna</h1>
-            <p class="lead-3 mx-auto mt-6 mb-7">Is an elegant, modern and fully customizable SaaS and WebApp template.
-            </p>
-            {{--  <hr class="w-80px mb-7">  --}}
-            {{--  <a class="btn btn-xl btn-round btn-light px-7" href="#">See Demos</a>  --}}
+        
+      <marquee  class="marquee" direction="right" >ما أجمل أن تكون حياً بعد مماتك  </marquee>
+           
+         <div class="row align-items-center h-100">
+           
+          <div class="col-lg-6">
+            <h1>! مرحبا صابر محمد</h1>
+            <p class="lead mt-5 mb-8">.الأمل هي تلك النافذة الصغيرة، التي مهما صغر حجمها، إلّا أنها تفتح آفاقاً واسعة في الحياة</p>
+            {{-- <p class="gap-xy">
+              <a class="btn btn-round btn-outline-light mw-150" href="#">Learn more</a>
+              <a class="btn btn-round btn-light mw-150" href="#">Sign up</a>
+            </p> --}}
           </div>
-{{--
-          <div class="col-12 align-self-end text-center mt-6">
-            <a class="scroll-down-1 scroll-down-white" href="#section-next"><span></span></a>
-          </div>  --}}
+          <div class="col-lg-5 ml-auto">
+          <img class="mt-5" src="{{asset('img/laptop-1.png')}}" alt="img">
+          </div>
         </div>
       </div>
     </header>

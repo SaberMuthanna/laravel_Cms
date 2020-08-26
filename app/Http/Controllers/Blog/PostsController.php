@@ -27,7 +27,7 @@ class PostsController extends Controller
         // }
         return view('blog.category')
             ->with('category', $category)
-            ->with('posts', $category->posts()->searched()->simplePaginate(3))
+            ->with('posts', $category->posts()->searched()->simplePaginate(4))
             ->with('categories', Category::all())
             ->with('tags', Tag::all());
     }
@@ -37,6 +37,6 @@ class PostsController extends Controller
             ->with('tag', $tag)
             ->with('categories', Category::all())
             ->with('tags', Tag::all())
-            ->with('posts', $tag->posts()->searched()->simplePaginate(3));
+            ->with('posts', $tag->posts()->searched()->simplePaginate(4));
     }
 }

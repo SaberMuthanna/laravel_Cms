@@ -15,9 +15,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-
-        $this->middleware('verifyCategoriesCount')
-                                            ->only(['create', 'store']);
+        $this->middleware('verifyCategoriesCount')                                     ->only(['create', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -41,7 +39,6 @@ class PostController extends Controller
             ->with('categories', Category::all())
             ->with('tags', Tag::all());
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -95,8 +92,6 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-
-
         return view('posts.create')
             ->with('post', $post)
             ->with('categories', Category::all())
@@ -145,7 +140,6 @@ class PostController extends Controller
         } else {
             $post->delete();
         }
-
         session()->flash('success', 'Post deleted successfully');
         return redirect('/posts');
     }
