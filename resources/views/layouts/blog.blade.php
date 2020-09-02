@@ -43,7 +43,8 @@
       <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
 
       </div>
-    </nav><!-- /.navbar -->
+    </nav>
+    <!-- /.navbar -->
 
     <!--start Header -->
     @yield('header')
