@@ -59,16 +59,8 @@
                 <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>
               </nav> --}}
               {{$posts->appends(['search'=>request()->query('search')])->links()}}
-
             </div>
-
-
-<<<<<<< HEAD
-
-           @include('partials.sidebar')
-=======
             @include('partials.sidebar')
->>>>>>> 3a1867c897c12ad5c1b901af9a3a83cac0a20cf5
           </div>
         </div>
       </div>
