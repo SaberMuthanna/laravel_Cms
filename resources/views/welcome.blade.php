@@ -8,11 +8,16 @@
     <header class="header text-white h-fullscreen pb-8" style="background-color: #24292e">
       <canvas class="constellation" data-color="rgba(255,255,255,0.3)"></canvas>
       <div class="container text-center position-static">
+<<<<<<< HEAD
 
       <marquee  class="marquee" direction="right" >!ما أجمل أن تكون حياً بعد مماتك  </marquee>
 
          <div class="row align-items-center h-100">
 
+=======
+      <marquee  class="marquee" direction="right" >ما أجمل أن تكون حياً بعد مماتك  </marquee>
+         <div class="row align-items-center h-100">
+>>>>>>> 3a1867c897c12ad5c1b901af9a3a83cac0a20cf5
           <div class="col-lg-6">
             <h1>! مرحبا صابر محمد</h1>
             <p class="lead mt-5 mb-8">.الأمل هي تلك النافذة الصغيرة، التي مهما صغر حجمها، إلّا أنها تفتح آفاقاً واسعة في الحياة</p>
