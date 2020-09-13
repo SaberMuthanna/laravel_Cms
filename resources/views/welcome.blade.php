@@ -49,7 +49,11 @@
       <div class="section bg-gray">
         <div class="container">
           <div class="row">
-            <div class="col-md-8 col-xl-9">
+
+             {{-- start sidebar --}}
+              @include('partials.sidebar')
+              {{-- start sidebar --}}
+               <div class="col-md-8 col-xl-9">
               <div class="row gap-y">
                 @forelse ($posts as $post)
                   <div class="col-md-6">
@@ -80,8 +84,6 @@
               {{$posts->appends(['search'=>request()->query('search')])->links()}}
 
             </div>
-             {{-- start sidebar --}}
-              @include('partials.sidebar')
           </div>
         </div>
       </div>

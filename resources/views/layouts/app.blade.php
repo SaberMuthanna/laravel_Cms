@@ -19,7 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      @if (config('app.locale')=='ar')
         <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
-     @endif 
+     @endif
 
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
     {{--  <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>  --}}
@@ -47,7 +47,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                  {{__('lang.language')}}
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                           
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                         <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                             {{ $properties['native'] }}
@@ -55,7 +55,7 @@
                                     @endforeach
                                 </div>
                             </li>
-                        <!-- Authentication Links -->   
+                        <!-- Authentication Links -->
                         @guest
 
                           <li class="nav-item dropdown">
@@ -63,10 +63,10 @@
                                  {{__('lang.Account')}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            
+
                                     <a class="nav-link  dropdown-item" href="{{ route('login') }}">{{ __('lang.Login') }}</a>
                                     @if (Route::has('register'))
-                                      <a class="nav-link " href="{{ route('register') }}">{{ __('lang.Register') }}</a>   
+                                      <a class="nav-link " href="{{ route('register') }}">{{ __('lang.Register') }}</a>
                                     @endif
                                 </div>
                             </li>
@@ -96,7 +96,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @auth
                 <div class="container">

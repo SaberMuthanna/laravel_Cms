@@ -43,7 +43,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{__('lang.language')}}
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">                           
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                       <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                           {{ $properties['native'] }}
@@ -63,8 +63,6 @@
     <!--start Header -->
     @yield('header')
     <!-- /. end header -->
-
-
     <!-- Start Main Content -->
     @yield('content')
     <!--end  Main Content -->
@@ -74,9 +72,9 @@
         <div class="row gap-y align-items-center">
           <div class="col-md-6">
             <div class="nav nav-bold nav-uppercase justify-content-center justify-content-md-end">
-             <a href="/"><img src="{{asset('img/logo-light.png')}}" alt="logo"></a>
-              <a class="nav-link" href="#">About</a>
-              <a class="nav-link" href="#">Contact</a>
+             <a  class="nav-link" href="/">{{ __('lang.Home') }}</a>
+              <a class="nav-link" href="#">{{ __('lang.About') }}
+              <a class="nav-link" href="#">{{ __('lang.Contact') }}</a>
             </div>
           </div>
           <div class="col-md-6 text-center text-md-left mt-5 mt-md-0">
