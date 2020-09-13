@@ -28,21 +28,33 @@
       <div class="container">
         <div class="navbar-left">
           <button class="navbar-toggler" type="button">&#9776;</button>
-        <a class="navbar-brand" href="{{route('welcome')}}">
-          <img class="logo-dark" src="{{asset('img/logo-dark.png')}}" alt="logo">
+        <a class="font-weight-bold" href="{{route('welcome')}}" >
+          {{-- <img class="logo-dark" src="{{asset('img/logo-dark.png')}}" alt="logo">
             <img class="logo-light" src="{{asset('img/logo-light.png')}}" alt="logo">
-          </a>
+          </a> --}}
+          {{ __('lang.Home') }}
         </div>
 
         <section class="navbar-mobile">
           <span class="navbar-divider d-mobile-none"></span>
-
           <ul class="nav nav-navbar">
+            <li class="nav-item dropdown">
 
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{__('lang.language')}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">                           
+                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                      <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                          {{ $properties['native'] }}
+                      </a>
+                  @endforeach
+              </div>
+            </li>
           </ul>
         </section>
 
-      <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
+      <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">{{ __('lang.Login') }}</a>
 
       </div>
     </nav>

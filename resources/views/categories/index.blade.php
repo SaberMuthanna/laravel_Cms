@@ -13,11 +13,11 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-primary">
-                        <th scope="col">@lang('category.Id')</th>
-                        <th scope="col">@lang('category.Name')</th>
-                        <th scope="col">@lang('category.Post Count')</th>
-                        <th scope="col">@lang('category.Edit')</th>
-                        <th scope="col">@lang('category.Delete') </th>
+                        <th scope="col">@lang('lang.Id')</th>
+                        <th scope="col">@lang('lang.Name')</th>
+                        <th scope="col">@lang('lang.Post Count')</th>
+                        <th scope="col">@lang('lang.Edit')</th>
+                        <th scope="col">@lang('lang.Delete') </th>
                         </tr>
                     </thead>
                     <tbody>

@@ -17,9 +17,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--  @if (config('app.locale')=='ar')
+     @if (config('app.locale')=='ar')
         <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
-    @endif  --}}
+     @endif 
 
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
     {{--  <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>  --}}
@@ -31,43 +31,45 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{__('lang.Home')}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
-
                     <!-- Right Side Of Navbar -->
-
-
                     <ul class="navbar-nav ml-auto">
+                         <li class="nav-item dropdown">
 
-                        <ul class="navbar-nav ml-auto">
-                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-
-                            <li class="nav-item">
-                                    <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        {{ $properties['native'] }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 {{__('lang.language')}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                           
+                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    @endforeach
+                                </div>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        <!-- Authentication Links -->   
+                        @guest
+
+                          <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 {{__('lang.Account')}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                                    <a class="nav-link  dropdown-item" href="{{ route('login') }}">{{ __('lang.Login') }}</a>
+                                    @if (Route::has('register'))
+                                      <a class="nav-link " href="{{ route('register') }}">{{ __('lang.Register') }}</a>   
+                                    @endif
+                                </div>
+                            </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,12 +78,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('users.edit-profile')}}">
-                                       My Profile
+                                       {{__('lang.My Profile')}}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('lang.Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
