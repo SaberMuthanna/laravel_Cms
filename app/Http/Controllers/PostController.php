@@ -15,7 +15,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $this->middleware('verifyCategoriesCount')                                     ->only(['create', 'store']);
+        $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class PostController extends Controller
     public function index()
     {
         return  view('posts.index')
-                                ->with('posts', Post::all());
+            ->with('posts', Post::all());
     }
 
     /**

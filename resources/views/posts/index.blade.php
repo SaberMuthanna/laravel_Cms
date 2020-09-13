@@ -28,7 +28,7 @@
                             <th scope="row">{{$post->id}}</th>
                             <td>
                                 {{-- <img src="{{ $post->image }}" alt=""> --}}
-                                <img class="rounded-circle" src="{{ $post->image }}" alt ="" width="50px" height="50px" >
+                                <img class="rounded-circle" src="{{$post->image}}" alt ="" width="50px" height="50px" >
                             </td>
                             <td scope="row">{{$post->title}}</td>
                             <td scope="row">{{$post->description}}</td>

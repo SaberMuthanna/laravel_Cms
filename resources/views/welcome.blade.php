@@ -3,16 +3,11 @@
     saber Blog
 @endsection
 @section('header')
-<!-- Header -->
+{{--  <!-- Header -->  --}}
 {{-- #4f407b --}}
     <header class="header text-white h-fullscreen pb-8" style="background-color: #24292e">
-      <canvas class="constellation" data-color="rgba(255,255,255,0.3)"></canvas>
+      <canvas class="constellation" data-color="rgba(255,255,255,0.3)"> </canvas>
       <div class="container text-center position-static">
-
-
-      <
-
-
       <marquee  class="marquee" direction="right" >!ما أجمل أن تكون حياً بعد مماتك  </marquee>
          <div class="row align-items-center h-100">
 
@@ -25,12 +20,12 @@
             </p> --}}
           </div>
           <div class="col-lg-5 ml-auto">
-          <img class="mt-5" src="{{asset('img/laptop-1.png')}}" alt="img">
+           <img class="mt-5" src="{{asset('img/laptop-1.png')}}" alt="img">
           </div>
         </div>
       </div>
     </header>
-    <!-- END Header -->
+    {{--  <!-- END Header -->  --}}
   {{--  <!-- Header -->
   <header class="header text-center text-white" style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
     <div class="container">

@@ -12,7 +12,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/page.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.scss') }}" rel="stylesheet">
+    @if (config('app.locale')=='ar')
+    <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
+    @endif
 
 
     <!-- Favicons -->

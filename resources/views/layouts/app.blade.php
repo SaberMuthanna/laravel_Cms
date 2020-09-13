@@ -17,9 +17,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{--  @if (config('app.locale')=='ar')
+        <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
+    @endif  --}}
+
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
     {{--  <script src="https://kit.fontawesome.com/98c0e3e784.js" crossorigin="anonymous"></script>  --}}
-     
+
     @yield('css')
 </head>
 <body>
@@ -40,7 +44,20 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
+
                     <ul class="navbar-nav ml-auto">
+
+                        <ul class="navbar-nav ml-auto">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                            <li class="nav-item">
+                                    <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
