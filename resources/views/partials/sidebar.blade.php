@@ -11,7 +11,7 @@
         <h6 class="sidebar-title">{{ __('lang.CATEGORIES') }}</h6>
         <ul class="list-group list-group-flush   row link-color-default fs-14 lh-24">
             @foreach ($categories as $category)
-                <li class="list-group-item">
+                <li class="list-group-item ">
                     <a href="{{ route('blog.category', $category->id)}}">
                         {{$category->name}}
                     </a>
