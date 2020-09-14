@@ -18,13 +18,10 @@
         <h1 class="display-4 mt-7 mb-8">{{$post->title}}</h1>
         <p><span class="opacity-70 mr-1">By</span> <a class="text-white" href="#">{{$post->user->name}}</a></p>
         <p><img class="avatar avatar-sm" src="{{Gravatar::src(asset($post->image))}}" alt="..."></p>
-
           </div>
-
           <div class="col-12 align-self-end text-center">
             <a class="scroll-down-1 scroll-down-white" href="#section-content"><span></span></a>
           </div>
-
         </div>
 
       </div>

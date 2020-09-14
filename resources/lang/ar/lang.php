@@ -5,19 +5,22 @@ return [
     'language' => "اللغة",
     'My Profile' => 'حسابي',
     'Login' => 'تسجيل الدخول',
-    'Register' => 'تسجيل الدخول',
+    'Register' => 'التسجيل ',
     'Logout' => 'تسجيل الخروج',
+    'user_Name' => 'الاسم',
+    'E-Mail Address' => 'البريد الالكتروني',
+    'Password' => 'كلمة المرور',
+    'Confirm Password'=>'تأكيد كلمة المرور',
+    'Remember Me' => 'تذكر',
+    'Forgot Your Password' => 'هل نسيت كلمة المرور؟',
     'Search' => 'البحث',
     'CATEGORIES' => 'القوائم الرئيسية',
     'TAGS' => 'وسوم',
     'About' => 'من نحن',
     'Contact' => 'التواصل ',
     'Id' => 'الرقم',
-    'Name' => 'اسم القائمة',
+    'Name category' => 'اسم القائمة',
     'Post Count' => 'عدد الاعلانات',
     'Edit' => 'التعديل',
     'Delete' => 'الحدف',
-
-
-
 ];

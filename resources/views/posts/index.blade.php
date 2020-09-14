@@ -26,7 +26,7 @@
                     @foreach($posts as $post)
                         <tr>
                             <th scope="row">{{$post->id}}</th>
-                            <td>
+                            <td scope="row">
                                 {{-- <img src="{{ $post->image }}" alt=""> --}}
                                 <img class="rounded-circle" src="{{$post->image}}" alt ="" width="50px" height="50px" >
                             </td>
@@ -35,7 +35,7 @@
                             <td scope="row">{{$post->category->name}}</td>
                             @if (!$post->trashed())
                             <td>
-                                <a class="btn" href="{{route('posts.edit',$post->id)}}">
+                                <a class="btn" href="{{route('posts.edit', $post->id)}}">
                                         <i class=" fas fa-edit" style="color:blue ; "></i>
                                 </a>
                             </td>

@@ -15,6 +15,9 @@ class Post extends Model
     protected $fillable = [
         'title', 'description', 'content', 'image', 'published_at', 'category_id', 'user_id'
     ];
+    public function getimageAttribute($image){
+        return asset($image);
+    }
     public function category()
     {
 

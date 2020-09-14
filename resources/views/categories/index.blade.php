@@ -14,7 +14,7 @@
                     <thead>
                         <tr class="table-primary">
                         <th scope="col">@lang('lang.Id')</th>
-                        <th scope="col">@lang('lang.Name')</th>
+                        <th scope="col">@lang('lang.Name category')</th>
                         <th scope="col">@lang('lang.Post Count')</th>
                         <th scope="col">@lang('lang.Edit')</th>
                         <th scope="col">@lang('lang.Delete') </th>
