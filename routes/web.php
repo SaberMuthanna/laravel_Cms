@@ -25,9 +25,10 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        Auth::routes();
+        Auth::routes(['verify' => true]);
 
         Route::get('/', 'WelcomeController@index')->name('welcome');
+
         Route::get('blog/posts/{post}', [PostsController::class, 'show'])->name('blog.show');
         Route::get('blog/categories/{category}', [PostsController::class, 'category'])->name('blog.category');
         Route::get('blog/tags/{tag}', [PostsController::class, 'tag'])->name('blog.tag');
@@ -45,6 +46,7 @@ Route::group(
             Route::get('users/profile', 'UserController@edit')->name('users.edit-profile');
             Route::put('users/profile', 'UserController@update')->name('users.update-profile');
             Route::post('users/{user}/make-admin', 'UserController@makeAdmin')->name('users.make-admin');
+            Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         });
     }
 );

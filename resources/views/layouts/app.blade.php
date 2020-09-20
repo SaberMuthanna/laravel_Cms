@@ -3,14 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -43,9 +39,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                          <li class="nav-item dropdown">
-
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 {{__('lang.language')}}
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 {{--  {{__('lang.language')}}  --}}
+                                 @if (config('app.locale')=='ar')
+                                    اللغة العربية
+                                 @else
+                                 English
+                                 @endif
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
@@ -126,6 +126,9 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('tags.index') }}"> Tags</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('dashboard') }}"> Dashboard</a>
                                 </li>
                             </ul>
                             <ul class="list-group mt-5">

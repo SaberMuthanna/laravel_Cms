@@ -39,7 +39,12 @@
           <ul class="nav nav-navbar">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{__('lang.language')}}
+               {{--  k{{__('lang.language')}}  --}}
+               @if (config('app.locale')=='ar')
+                    اللغة العربية
+                @else
+                    English
+                @endif
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

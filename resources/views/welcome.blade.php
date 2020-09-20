@@ -12,8 +12,8 @@
          <div class="row align-items-center h-100">
 
           <div class="col-lg-6">
-            <h1>! مرحبا صابر محمد</h1>
-            <p class="lead mt-5 mb-8">.الأمل هي تلك النافذة الصغيرة، التي مهما صغر حجمها، إلّا أنها تفتح آفاقاً واسعة في الحياة</p>
+            <h1> مرحبا صابر محمد !</h1>
+            <p class="lead mt-5 mb-8">الأمل هي تلك النافذة الصغيرة، التي مهما صغر حجمها، إلّا أنها تفتح آفاقاً واسعة في الحياة.</p>
             {{-- <p class="gap-xy">
               <a class="btn btn-round btn-outline-light mw-150" href="#">Learn more</a>
               <a class="btn btn-round btn-light mw-150" href="#">Sign up</a>
